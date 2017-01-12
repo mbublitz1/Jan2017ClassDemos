@@ -1,0 +1,2 @@
+To deal with Roslyn.cs.exe error use the following command
+update-package Microsoft.CodeDom.Providers.DotNetComplierPlatform -r
