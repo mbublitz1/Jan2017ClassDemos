@@ -44,7 +44,9 @@ namespace Chinook.System.BLL
                 var results = context.Albums
                             .Where(x => x.Artist.Name.Contains(name))
                             .OrderByDescending(x => x.ReleaseYear);
-
+                //remember if you have used .Dump() in linqpad to view 
+                //your contents of the query, .Dump() is a linqpad method
+                //it is NOT C#
                 return results.ToList();
             }
         }
