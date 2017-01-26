@@ -87,6 +87,7 @@
                             <asp:MenuItem Text="Queries" Value="Queries">
                                 <asp:MenuItem Text="Nav Query" NavigateUrl="~/SamplePages/NavigationPropertySample.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Parameter Query" NavigateUrl="~/SamplePages/SimpleParameterQuery.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Nested Repeater" NavigateUrl="~/SamplePages/RepeaterNestedRepeater.aspx"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Contact" NavigateUrl="~/Contact.aspx"></asp:MenuItem>

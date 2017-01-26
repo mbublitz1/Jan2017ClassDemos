@@ -9,6 +9,7 @@ using Chinook.Data.Entities;
 using Chinook.System.DAL;
 using System.ComponentModel;
 using Chinook.Data.POCOs;
+using Chinook.Data.DTOs;
 #endregion
 
 namespace Chinook.System.BLL
@@ -32,7 +33,7 @@ namespace Chinook.System.BLL
                               };
                 return results.ToList();
             }
-        }
+        } //eom
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<Album> Albums_GetForArtistsbyName(string name)
@@ -49,6 +50,29 @@ namespace Chinook.System.BLL
                 //it is NOT C#
                 return results.ToList();
             }
-        }
-    }
-}
+        } //eom
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<ArtistAlbumReleases> ArtistAlbumReleases_List()
+        {
+            using (var context = new ChinookContext())
+            {
+                var results = from x in context.Albums
+                              group x by x.Artist.Name into result
+                              select new ArtistAlbumReleases
+                              {
+                                  Artist = result.Key,
+                                  Albums = (from y in result
+                                           select new AlbumRelease
+                                           {
+                                               Title = y.Title,
+                                               RYear = y.ReleaseYear,
+                                               Label = y.ReleaseLabel
+                                           }).ToList()
+                              };
+                return results.ToList();
+            }
+        }//eom
+
+    } //eoc
+} //eon
