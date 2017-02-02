@@ -74,5 +74,20 @@ namespace Chinook.System.BLL
             }
         }//eom
 
+        #region CRUD
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Album> Albums_GetByTitle(string title)
+        {
+            using (var context = new ChinookContext())
+            {
+                var results = from x in context.Albums
+                              where x.Title.Contains(title)
+                              select x;
+
+                return results.ToList();
+            }
+        }
+        #endregion
+
     } //eoc
 } //eon

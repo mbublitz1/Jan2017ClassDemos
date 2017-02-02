@@ -89,9 +89,12 @@
                                 <asp:MenuItem Text="Parameter Query" NavigateUrl="~/SamplePages/SimpleParameterQuery.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Nested Repeater" NavigateUrl="~/SamplePages/RepeaterNestedRepeater.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Bootstrap Tabs" NavigateUrl="~/SamplePages/bootstraptabs.aspx"></asp:MenuItem>
+                                 <asp:MenuItem Text="CRUD Review" NavigateUrl="~/SamplePages/CRUDReview.aspx"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Contact" NavigateUrl="~/Contact.aspx"></asp:MenuItem>
+                           
+
                         </Items>
 
                     </asp:Menu>
