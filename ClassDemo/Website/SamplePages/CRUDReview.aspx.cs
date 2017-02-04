@@ -65,22 +65,114 @@ public partial class SamplePages_CRUDReview : System.Web.UI.Page
 
     protected void AlbumList_SelectedIndexChanged(object sender, EventArgs e)
     {
-       
+        //Coming from find tab
+        GridViewRow agvRow = AlbumList.Rows[AlbumList.SelectedIndex];
+        string albumId = (agvRow.FindControl("AlbumID") as Label).Text; //This will get the value from the text
+        string albumTitle = (agvRow.FindControl("Title") as Label).Text;
+        string albumYear = (agvRow.FindControl("Year") as Label).Text;
+        string albumLabel = (agvRow.FindControl("AlbumLabel") as Label).Text;
+        string artistId = (agvRow.FindControl("ArtistID") as Label).Text;
+        //If for example you wanted to do something like above you can do the following for a DDL
+        //string albumId = (agvRow.FindControl("AlbumID") as DropDownList).SelectedValue;
+
+        //Displaying on find tab
+        SelectedTitle.Text = albumTitle + " released in " + albumYear + " by " + albumLabel;
+
+        //filling controls on tab maintain
+        AlbumID.Text = albumId;
+        AlbumTitle.Text = albumTitle;
+        ArtistList.SelectedValue = artistId;
+        AlbumReleaseYear.Text = albumYear;
+        AlbumReleaseLabel.Text = albumLabel;
+
+
 
     }
 
     protected void AddAlbum_Click(object sender, EventArgs e)
     {
-       
+        //retest the validation of the incoming data via the Validation controls
+        if (IsValid)
+        {
+            //any other business rules 
+            MessageUserControl2.TryRun(() => 
+            {
+                AlbumController sysmgr = new AlbumController();
+                Album newAlbum = new Album();
+                newAlbum.Title = AlbumTitle.Text;
+                newAlbum.ArtistId = int.Parse(ArtistList.SelectedValue);
+                newAlbum.ReleaseYear = int.Parse(AlbumReleaseYear.Text);
+                newAlbum.ReleaseLabel = string.IsNullOrEmpty(AlbumReleaseLabel.Text) ? null : AlbumReleaseLabel.Text;
+
+                sysmgr.Albums_Add(newAlbum);
+            }, "Add Album", "Album has been added sucessfully to the database");
+        }
        
     }
     protected void UpdateAlbum_Click(object sender, EventArgs e)
     {
-       
+        //retest the validation of the incoming data via the Validation controls
+        if (IsValid)
+        {
+            //any other business rules 
+            if (string.IsNullOrEmpty(AlbumID.Text))
+            {
+                MessageUserControl2.ShowInfo("Missing Data","Missing Album Id, Use find to lcation the album you wish to update");
+                
+            }
+            else
+            {
+                int albumid = 0;
+                if (int.TryParse(AlbumID.Text, out albumid))
+                {
+                    MessageUserControl2.TryRun(() =>
+                    {
+                        AlbumController sysmgr = new AlbumController();
+                        Album newAlbum = new Album();
+                        newAlbum.AlbumId = albumid;
+                        newAlbum.Title = AlbumTitle.Text;
+                        newAlbum.ArtistId = int.Parse(ArtistList.SelectedValue);
+                        newAlbum.ReleaseYear = int.Parse(AlbumReleaseYear.Text);
+                        newAlbum.ReleaseLabel = string.IsNullOrEmpty(AlbumReleaseLabel.Text) ? null : AlbumReleaseLabel.Text;
+
+                        sysmgr.Albums_Update(newAlbum);
+                    }, "Add Album", "Album has been sucessfully updated to the database");
+                }
+                else
+                {
+                    MessageUserControl2.ShowInfo("Invalid Data", "Album Id, Use find to lcation the album you wish to update");
+                }
+            }
+        }
     }
     protected void DeleteAlbum_Click(object sender, EventArgs e)
     {
-       
+        //retest the validation of the incoming data via the Validation controls
+
+            //any other business rules 
+            if (string.IsNullOrEmpty(AlbumID.Text))
+            {
+                MessageUserControl2.ShowInfo("Missing Data", "Missing Album Id, Use find to lcation the album you wish to update");
+
+            }
+            else
+            {
+                int albumid = 0;
+                if (int.TryParse(AlbumID.Text, out albumid))
+                {
+                    MessageUserControl2.TryRun(() =>
+                    {
+                        AlbumController sysmgr = new AlbumController();
+         
+                        sysmgr.Album_Delete(albumid);
+                    }, "Add Album", "Album has been sucessfully updated to the database");
+                }
+                else
+                {
+                    MessageUserControl2.ShowInfo("Invalid Data", "Album Id, Use find to lcation the album you wish to update");
+                }
+            }
+
     }
     protected void Clear_Click(object sender, EventArgs e)
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 #region Additional Namespaces
 using Chinook.Data.Entities;
@@ -87,6 +88,80 @@ namespace Chinook.System.BLL
                 return results.ToList();
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Album> Album_List()
+        {
+            using (var context = new ChinookContext())
+            {
+                return context.Albums.ToList();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public Album Albums_Get(int albumId)
+        {
+            using (var context = new ChinookContext())
+            {
+                return context.Albums.Find(albumId);
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Insert, false)]
+        public void Albums_Add(Album item)
+        {
+            using (var context = new ChinookContext())
+            {
+                //any business rules
+                context.Albums.Add(item);
+                context.SaveChanges();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update, false)]
+        public void Albums_Update(Album item)
+        {
+            using (var context = new ChinookContext())
+            {
+                //any business rules
+
+                //any data refinements
+                //review of using iif
+                //composer cam be a mi;; stromg
+                //we do not wish to store an empty string
+                context.Albums.Attach(item);
+                item.ReleaseLabel = string.IsNullOrEmpty(item.ReleaseLabel) ? null : item.ReleaseLabel;
+
+                //update the existing instance of truckinfo on the database
+                context.Entry(item).State = EntityState.Modified;
+
+                //update command if updating selected fields
+                //context
+                context.SaveChanges();
+
+            }
+            
+        }
+
+        public void Album_Delete(int albumId)
+        {
+            using (var context = new ChinookContext())
+            {
+                //do the delete
+                //find the existing record in the database
+                var existing = context.Albums.Find(albumId);
+
+                if (existing == null)
+                {
+                    throw new Exception("Album does not exist in database.");
+                }
+                //delete the record from the database
+                context.Albums.Remove(existing);
+                //commit the transaction
+                context.SaveChanges();
+            }
+        }
+
         #endregion
 
     } //eoc
