@@ -143,6 +143,12 @@ namespace Chinook.System.BLL
             
         }
 
+        [DataObjectMethod(DataObjectMethodType.Delete, false)]
+        public void Albums_Delete(Album item)
+        {
+            Album_Delete(item.AlbumId);
+        }
+
         public void Album_Delete(int albumId)
         {
             using (var context = new ChinookContext())
