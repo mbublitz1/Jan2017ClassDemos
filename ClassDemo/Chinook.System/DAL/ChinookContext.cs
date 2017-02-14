@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 #region Additional Namespaces
 using System.Data.Entity;
 using Chinook.Data.Entities;
+using Chinook.Data.Enitities;
 #endregion
 namespace Chinook.System.DAL
 {
@@ -21,5 +22,7 @@ namespace Chinook.System.DAL
         public DbSet<Album> Albums { get; set; }
         public DbSet<MediaType> MediaTypes { get; set; }
         public DbSet<Track> Tracks { get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
     }
 }

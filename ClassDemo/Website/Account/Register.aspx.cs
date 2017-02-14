@@ -1,8 +1,14 @@
-﻿using Microsoft.AspNet.Identity;
+﻿
+using Microsoft.AspNet.Identity;
 using System;
 using System.Linq;
 using System.Web.UI;
 using Website;
+
+#region Additional Namespaces
+using Chinook.System.BLL.Security;
+using Chinook.Data.Entities.Security;
+#endregion
 
 public partial class Account_Register : Page
 {

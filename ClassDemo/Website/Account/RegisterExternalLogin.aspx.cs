@@ -1,8 +1,15 @@
-﻿using Microsoft.AspNet.Identity;
+﻿
+
 using Microsoft.Owin.Security;
 using System;
 using System.Web;
 using Website;
+
+#region Additional Namespaces
+using Chinook.System.BLL.Security;
+using Chinook.Data.Entities.Security;
+using Microsoft.AspNet.Identity;
+#endregion
 
 public partial class Account_RegisterExternalLogin : System.Web.UI.Page
 {
