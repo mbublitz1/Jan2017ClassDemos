@@ -22,5 +22,7 @@ namespace Chinook.Data.Entities.Security
                 return value;
             }
         }
+
+
     }
 }

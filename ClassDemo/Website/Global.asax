@@ -20,6 +20,7 @@
         rolemgr.AddDefaultRoles();
         var usrmgr = new UserManager();
         usrmgr.AddWebMaster();
+        usrmgr.AddEmployees();
     }
 
 </script>

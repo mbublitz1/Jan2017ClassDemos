@@ -50,7 +50,9 @@
     <Compile Include="Entities\Artist.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\MediaType.cs" />
+    <Compile Include="Entities\Security\RoleProfile.cs" />
     <Compile Include="Entities\Security\SecurityRoles.cs" />
+    <Compile Include="Entities\Security\UserProfile.cs" />
     <Compile Include="Entities\Track.cs" />
     <Compile Include="Entities\Security\ApplicationUser.cs" />
     <Compile Include="POCOs\AlbumArtist.cs" />
