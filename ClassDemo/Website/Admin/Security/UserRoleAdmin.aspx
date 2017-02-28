@@ -116,7 +116,7 @@
                             InsertMethod="AddUser" 
                             SelectMethod="ListAllUsers"
                             OldValuesParameterFormatString="original_{0}"  
-                            TypeName="ChinookSystem.BLL.Security.UserManager"
+                            TypeName="Chinook.System.BLL.Security.UserManager"
                              OnDeleted="CheckForException"
                              OnInserted="CheckForException"
                              OnSelected="CheckForException">
@@ -124,7 +124,7 @@
                             <asp:ObjectDataSource ID="RoleNameODS" runat="server" 
                             SelectMethod="ListAllRoleNames"
                             OldValuesParameterFormatString="original_{0}"  
-                            TypeName="ChinookSystem.BLL.Security.RoleManager">
+                            TypeName="Chinook.System.BLL.Security.RoleManager">
                         </asp:ObjectDataSource>
                         </ContentTemplate>
                     </asp:UpdatePanel>   
@@ -192,7 +192,7 @@
                                 SelectMethod="ListAllRoles"
                                 DeleteMethod="DeleteRole" 
                                 InsertMethod="AddRole"
-                                TypeName="ChinookSystem.BLL.Security.RoleManager" 
+                                TypeName="Chinook.System.BLL.Security.RoleManager" 
                                 DataObjectTypeName="Chinook.Data.Enitities.Security.RoleProfile"
                                 OnDeleted="CheckForException"
                                 OnInserted="CheckForException"

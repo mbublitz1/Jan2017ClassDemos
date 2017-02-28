@@ -13,7 +13,7 @@ using Chinook.System.DAL.Security;
 using Chinook.Data.POCOs;
 using System.ComponentModel;
 using Chinook.Data.Enitities.Security;
-using ChinookSystem.BLL;
+using Chinook.System.BLL;
 using Chinook.System.DAL;
 using Chinook.Data.Enitities;
 #endregion

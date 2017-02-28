@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Chinook.Data.Enitities;
 using Chinook.System.DAL;
 #endregion
-namespace ChinookSystem.BLL
+namespace Chinook.System.BLL
 {
     public class EmployeeController
     {

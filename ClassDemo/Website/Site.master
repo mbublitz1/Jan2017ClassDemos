@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -75,13 +75,13 @@
 
                     <%-- It seems to have a properly aligned and working DDM (Drop down menu)
                          the menu must be moved after the loginview menu item tag  --%>
-                    <asp:Menu ID="navMenu" runat="server" 
-                              BackColor="#000000" BorderColor="Red"
-                              StaticMenuItemStyle-ForeColor="#999999" 
-                              StaticMenuItemStyle-VerticalPadding="10px"
-                              StaticMenuItemStyle-HorizontalPadding="10px" RenderingMode="List"
-                              Orientation="Horizontal" 
-                              DynamicMenuItemStyle-ForeColor="#999999" DynamicMenuItemStyle-BackColor="Black">
+                    <asp:Menu ID="navMenu" runat="server"
+                        BackColor="#000000" BorderColor="Red"
+                        StaticMenuItemStyle-ForeColor="#999999"
+                        StaticMenuItemStyle-VerticalPadding="10px"
+                        StaticMenuItemStyle-HorizontalPadding="10px" RenderingMode="List"
+                        Orientation="Horizontal"
+                        DynamicMenuItemStyle-ForeColor="#999999" DynamicMenuItemStyle-BackColor="Black">
                         <Items>
                             <asp:MenuItem Text="Home" NavigateUrl="~/"></asp:MenuItem>
                             <asp:MenuItem Text="Queries" Value="Queries">
@@ -89,11 +89,17 @@
                                 <asp:MenuItem Text="Parameter Query" NavigateUrl="~/SamplePages/SimpleParameterQuery.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Nested Repeater" NavigateUrl="~/SamplePages/RepeaterNestedRepeater.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Bootstrap Tabs" NavigateUrl="~/SamplePages/bootstraptabs.aspx"></asp:MenuItem>
-                                 <asp:MenuItem Text="CRUD Review" NavigateUrl="~/SamplePages/CRUDReview.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="CRUD Review" NavigateUrl="~/SamplePages/CRUDReview.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Maintenance" Value="Maintenance">
+                                <asp:MenuItem Text="CRUD Review"
+                                    NavigateUrl="~/SamplePages/CRUDReview.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="User/Role Admin"
+                                    NavigateUrl="~/Admin/Security/UserRoleAdmin.aspx"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Contact" NavigateUrl="~/Contact.aspx"></asp:MenuItem>
-                           
+
 
                         </Items>
 
