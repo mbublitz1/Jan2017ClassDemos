@@ -1,45 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-#region Additional Namespaces
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-#endregion
-
 namespace Chinook.Data.Entities
 {
-    [Table("Tracks")]
-    public class Track
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Track
     {
-        [Key]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Track()
+        {
+            PlaylistTracks = new HashSet<PlaylistTrack>();
+        }
+
         public int TrackId { get; set; }
-        [Required(ErrorMessage = "Name is required")]
-        [StringLength(200, ErrorMessage = "Name exceeds maximum length of 200 characters")]
+
+        [Required]
+        [StringLength(200)]
         public string Name { get; set; }
+
         public int? AlbumId { get; set; }
+
         public int MediaTypeId { get; set; }
+
         public int? GenreId { get; set; }
-        [StringLength(200, ErrorMessage = "Composer exceeds maximum length of 200 characters")]
+
+        [StringLength(220)]
         public string Composer { get; set; }
-        [Required(ErrorMessage = "Milliseconds is required")]
-        [Range(1.0,Double.MaxValue,ErrorMessage = "Millisecond value out of range; must be greater than 0")] //Double.MaxValue give you the maximum value of a double data type
+
         public int Milliseconds { get; set; }
+
         public int? Bytes { get; set; }
-        [Required(ErrorMessage = "UnitPrice is required")]
-        [Range(0.00, Double.MaxValue, ErrorMessage = "Unit Price value out of range; must be 0 or greater")]
+
+        [Column(TypeName = "numeric")]
         public decimal UnitPrice { get; set; }
 
-        //Navigation properties
         public virtual Album Album { get; set; }
+
+        public virtual Genre Genre { get; set; }
+
         public virtual MediaType MediaType { get; set; }
 
-        //public virtual Genre Genre { get; set; }
-        //public virtual ICollection<Track> PlaylistTracks { get; set; }
-        //public virtual ICollection<InvoiceLine> InvoiceLines { get; set; }
-
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PlaylistTrack> PlaylistTracks { get; set; }
     }
 }

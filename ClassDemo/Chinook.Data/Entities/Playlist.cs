@@ -6,20 +6,23 @@ namespace Chinook.Data.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class MediaType
+    public partial class Playlist
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MediaType()
+        public Playlist()
         {
-            Tracks = new HashSet<Track>();
+            PlaylistTracks = new HashSet<PlaylistTrack>();
         }
 
-        public int MediaTypeId { get; set; }
+        public int PlaylistId { get; set; }
 
+        [Required]
         [StringLength(120)]
         public string Name { get; set; }
 
+        public int? CustomerId { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Track> Tracks { get; set; }
+        public virtual ICollection<PlaylistTrack> PlaylistTracks { get; set; }
     }
 }

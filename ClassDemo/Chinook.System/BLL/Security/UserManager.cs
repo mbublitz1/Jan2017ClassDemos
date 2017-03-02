@@ -13,11 +13,10 @@ using Chinook.System.DAL.Security;
 using Chinook.Data.POCOs;
 using System.ComponentModel;
 using Chinook.Data.Enitities.Security;
-using Chinook.System.BLL;
 using Chinook.System.DAL;
-using Chinook.Data.Enitities;
+using Chinook.Data.Entities;
 #endregion
-
+//
 namespace Chinook.System.BLL.Security
 {
     [DataObject]
@@ -181,7 +180,7 @@ namespace Chinook.System.BLL.Security
             //get any user first and last names
             using (var context = new ChinookContext())
             {
-                Data.Enitities.Employee tempEmployee;
+                Data.Entities.Employee tempEmployee;
                 foreach (var person in tempresults)
                 {
                     if (person.EmployeeId.HasValue)

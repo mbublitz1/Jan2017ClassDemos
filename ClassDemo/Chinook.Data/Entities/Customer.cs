@@ -6,33 +6,26 @@ namespace Chinook.Data.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Employee
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public Customer()
         {
-            Customers = new HashSet<Customer>();
-            Employees1 = new HashSet<Employee>();
+            Invoices = new HashSet<Invoice>();
         }
 
-        public int EmployeeId { get; set; }
+        public int CustomerId { get; set; }
+
+        [Required]
+        [StringLength(40)]
+        public string FirstName { get; set; }
 
         [Required]
         [StringLength(20)]
         public string LastName { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string FirstName { get; set; }
-
-        [StringLength(30)]
-        public string Title { get; set; }
-
-        public int? ReportsTo { get; set; }
-
-        public DateTime? BirthDate { get; set; }
-
-        public DateTime? HireDate { get; set; }
+        [StringLength(80)]
+        public string Company { get; set; }
 
         [StringLength(70)]
         public string Address { get; set; }
@@ -55,15 +48,15 @@ namespace Chinook.Data.Entities
         [StringLength(24)]
         public string Fax { get; set; }
 
+        [Required]
         [StringLength(60)]
         public string Email { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
+        public int? SupportRepId { get; set; }
+
+        public virtual Employee Employee { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employees1 { get; set; }
-
-        public virtual Employee Employee1 { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }
