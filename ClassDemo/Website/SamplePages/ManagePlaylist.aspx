@@ -15,7 +15,7 @@
         <div class="col-sm-10">
             <asp:Label ID="Label1" runat="server" Text="Artist"></asp:Label><br />
             <asp:DropDownList ID="ArtistDDL" runat="server" DataSourceID="ArtistDDLODS" DataTextField="DisplayText" DataValueField="IDValueField"></asp:DropDownList><br />
-            <asp:Button ID="ArtistFecth" runat="server" Text="Fetch" />
+            <asp:Button ID="ArtistFecth" runat="server" Text="Fetch" OnClick="ArtistFecth_Click" />
             <br /> <br />
             <asp:Label ID="Label2" runat="server" Text="Media"></asp:Label><br />
             <asp:DropDownList ID="MediaTypeDDL" runat="server" DataSourceID="MediaTypeDDLODS" DataTextField="DisplayText" DataValueField="IDValueField"></asp:DropDownList><br />
@@ -41,6 +41,6 @@
     <asp:ObjectDataSource ID="MediaTypeDDLODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="List_MediaTypesName" TypeName="Chinook.System.BLL.MediaTypeController"></asp:ObjectDataSource>
     <asp:ObjectDataSource ID="GenreDDLODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="List_GenreName" TypeName="Chinook.System.BLL.GenreController"></asp:ObjectDataSource>
     <asp:ObjectDataSource ID="AlbumDDLODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="List_AlbumTitles" TypeName="Chinook.System.BLL.AlbumController"></asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="TrackSelectionListODS" runat="server"></asp:ObjectDataSource>
 </asp:Content>
 

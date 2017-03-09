@@ -16,4 +16,15 @@ public partial class SamplePages_ManagePlaylist : System.Web.UI.Page
     {
         MessageUserControl.HandleDataBoundException(e);
     }
+
+    protected void ArtistFecth_Click(object sender, EventArgs e)
+    {
+        MessageUserControl.TryRun(() =>
+        {
+            TracksBy.Text = "Artist";
+            SearchArgId.Text = ArtistDDL.SelectedValue;
+            TracksSelectionList.DataBind(); //Will force the ODS to execute
+
+        });
+    }
 }
