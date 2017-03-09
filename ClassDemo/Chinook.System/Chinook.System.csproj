@@ -65,6 +65,7 @@
     <Compile Include="BLL\MediaTypeController.cs" />
     <Compile Include="BLL\Security\RoleManager.cs" />
     <Compile Include="BLL\Security\UserManager.cs" />
+    <Compile Include="BLL\TrackController.cs" />
     <Compile Include="DAL\ChinookContext.cs" />
     <Compile Include="DAL\Security\ApplicationDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
