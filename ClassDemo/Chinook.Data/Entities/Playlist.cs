@@ -20,7 +20,8 @@ namespace Chinook.Data.Entities
         [StringLength(120)]
         public string Name { get; set; }
 
-        public int? CustomerId { get; set; }
+        [StringLength(120)]
+        public string UserName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlaylistTrack> PlaylistTracks { get; set; }
