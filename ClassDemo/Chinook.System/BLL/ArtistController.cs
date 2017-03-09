@@ -39,5 +39,22 @@ namespace Chinook.System.BLL
                 return context.Artists.Find(artistId);
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<SelectionList> List_ArtistName()
+        {
+            using (var context = new ChinookContext())
+            {
+                var results = from x in context.Artists
+                              orderby x.Name
+                              select new SelectionList
+                              {
+                                  IDValueField = x.ArtistId,
+                                  DisplayText = x.Name
+                              };
+
+                return results.ToList();
+            }
+        }
     }
 }

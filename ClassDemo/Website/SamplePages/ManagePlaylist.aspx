@@ -14,7 +14,7 @@
         </div>
         <div class="col-sm-10">
             <asp:Label ID="Label1" runat="server" Text="Artist"></asp:Label><br />
-            <asp:DropDownList ID="ArtistDDL" runat="server"></asp:DropDownList><br />
+            <asp:DropDownList ID="ArtistDDL" runat="server" DataSourceID="ArtistDDLODS" DataTextField="DisplayText" DataValueField="IDValueField"></asp:DropDownList><br />
             <asp:Button ID="ArtistFecth" runat="server" Text="Fetch" />
             <br /> <br />
             <asp:Label ID="Label2" runat="server" Text="Media"></asp:Label><br />
@@ -28,8 +28,12 @@
             <asp:Label ID="Label4" runat="server" Text="Album"></asp:Label><br />
             <asp:DropDownList ID="AlbumDDL" runat="server"></asp:DropDownList><br />
             <asp:Button ID="AlbumFetch" runat="server" Text="Fetch" />
-            
         </div>
     </div>
+    <asp:ObjectDataSource ID="ArtistDDLODS" runat="server" OldValuesParameterFormatString="original_{0}"
+         SelectMethod="List_ArtistName" TypeName="Chinook.System.BLL.ArtistController" OnSelected="CheckForException"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="MediaTypeDDLODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="List_MediaTypesName" TypeName="Chinook.System.BLL.MediaTypeController"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="GenreDDLODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="List_GenreName" TypeName="Chinook.System.BLL.GenreController"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="AlbumDDLODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="List_AlbumTitles" TypeName="Chinook.System.BLL.AlbumController"></asp:ObjectDataSource>
 </asp:Content>
 
