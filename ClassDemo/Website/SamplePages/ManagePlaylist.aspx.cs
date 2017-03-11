@@ -98,4 +98,9 @@ public partial class SamplePages_ManagePlaylist : System.Web.UI.Page
             });
         }
     }
+
+    protected void TracksSelectionList_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        MessageUserControl.ShowInfo("You pressed the plus sign button for track id " + e.CommandArgument.ToString());
+    }
 }

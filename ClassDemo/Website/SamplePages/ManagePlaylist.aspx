@@ -37,11 +37,12 @@
             <asp:Label ID="TracksBy" runat="server"></asp:Label>&nbsp;&nbsp;
             <asp:Label ID="SearchArgId" runat="server"></asp:Label>
             <br />
-            <asp:ListView ID="TracksSelectionList" runat="server" DataSourceID="TrackSelectionListODS">
+            <asp:ListView ID="TracksSelectionList" runat="server" DataSourceID="TrackSelectionListODS" OnItemCommand="TracksSelectionList_ItemCommand"
+                >
                 <AlternatingItemTemplate>
                     <tr style="background-color: #FFFFFF; color: #284775;">
                         <td>
-                            <asp:Label Text='<%# Eval("TrackID") %>' runat="server" ID="TrackIDLabel" /></td>
+                            <asp:LinkButton ID="AddtoPlaylist" runat="server" CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'><span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
                         <td>
                             <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
                         <td>
@@ -71,7 +72,7 @@
                 <ItemTemplate>
                     <tr style="background-color: #E0FFFF; color: #333333;">
                         <td>
-                            <asp:Label Text='<%# Eval("TrackID") %>' runat="server" ID="TrackIDLabel" /></td>
+                            <asp:LinkButton ID="AddtoPlaylist" runat="server" CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'><span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
                         <td>
                             <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
                         <td>
