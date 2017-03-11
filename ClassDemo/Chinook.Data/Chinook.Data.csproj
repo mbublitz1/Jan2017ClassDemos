@@ -75,6 +75,7 @@
     <Compile Include="POCOs\RegisteredEmployeePOCO.cs" />
     <Compile Include="POCOs\SelectionList.cs" />
     <Compile Include="POCOs\TrackList.cs" />
+    <Compile Include="POCOs\UserPlayListTrack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
