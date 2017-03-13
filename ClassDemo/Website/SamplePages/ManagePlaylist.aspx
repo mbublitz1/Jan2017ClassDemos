@@ -37,12 +37,15 @@
             <asp:Label ID="TracksBy" runat="server"></asp:Label>&nbsp;&nbsp;
             <asp:Label ID="SearchArgId" runat="server"></asp:Label>
             <br />
-            <asp:ListView ID="TracksSelectionList" runat="server" DataSourceID="TrackSelectionListODS" OnItemCommand="TracksSelectionList_ItemCommand"
-                >
+            <asp:ListView ID="TracksSelectionList" runat="server" DataSourceID="TrackSelectionListODS" OnItemCommand="TracksSelectionList_ItemCommand">
                 <AlternatingItemTemplate>
                     <tr style="background-color: #FFFFFF; color: #284775;">
                         <td>
-                            <asp:LinkButton ID="AddtoPlaylist" runat="server" CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'><span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
+                            <asp:LinkButton ID="AddtoPlaylist" runat="server"
+                                CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
+                            <span aria-hidden="true" class="glyphicon glyphicon-plus"></span>
+                            </asp:LinkButton>
+                        </td>
                         <td>
                             <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
                         <td>
@@ -56,7 +59,8 @@
                         <td>
                             <asp:Label Text='<%# Eval("Milliseconds") %>' runat="server" ID="MillisecondsLabel" /></td>
                         <td>
-                            <asp:Label Text='<%# string.Format("{0:0.00}", (int)Eval("Bytes") / 1000000m) %>' runat="server" ID="BytesLabel" /></td>
+                            <asp:Label Text='<%# string.Format("{0:0.00}",(int)Eval("Bytes") / 1000000m) %>'
+                                runat="server" ID="BytesLabel" /></td>
                         <td>
                             <asp:Label Text='<%# Eval("UnitPrice") %>' runat="server" ID="UnitPriceLabel" /></td>
                     </tr>
@@ -72,8 +76,13 @@
                 <ItemTemplate>
                     <tr style="background-color: #E0FFFF; color: #333333;">
                         <td>
-                            <asp:LinkButton ID="AddtoPlaylist" runat="server" CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'><span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
+                            <asp:LinkButton ID="AddtoPlaylist" runat="server"
+                                CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
+                            <span aria-hidden="true" class="glyphicon glyphicon-plus"></span>
+                            </asp:LinkButton>
+                        </td>
                         <td>
+
                             <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
                         <td>
                             <asp:Label Text='<%# Eval("Title") %>' runat="server" ID="TitleLabel" /></td>
@@ -86,7 +95,7 @@
                         <td>
                             <asp:Label Text='<%# Eval("Milliseconds") %>' runat="server" ID="MillisecondsLabel" /></td>
                         <td>
-                            <asp:Label Text='<%# string.Format("{0:0.00}", (int)Eval("Bytes") / 1000000m) %>' runat="server" ID="BytesLabel" /></td>
+                            <asp:Label Text='<%#string.Format("{0:0.00}",(int)Eval("Bytes") / 1000000m) %>' runat="server" ID="BytesLabel" /></td>
                         <td>
                             <asp:Label Text='<%# Eval("UnitPrice") %>' runat="server" ID="UnitPriceLabel" /></td>
                     </tr>
@@ -132,31 +141,36 @@
             <asp:Button ID="PlayListFetch" runat="server" Text="Fetch" OnClick="PlayListFetch_Click" />
             <br />
             <br />
-            <asp:GridView ID="PlayList" runat="server">
+            <asp:GridView ID="PlayList" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:TemplateField HeaderText="TrackID">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% Eval("TrackID") %>'></asp:Label>
+                            <asp:Label runat="server"
+                                Text='<%# Eval("TrackID") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Track">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% Eval("TrackNumber") %>'></asp:Label>
+                            <asp:Label runat="server"
+                                Text='<%# Eval("TrackNumber") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Name">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% Eval("Name") %>'></asp:Label>
+                            <asp:Label runat="server"
+                                Text='<%# Eval("TrackName") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Time">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% string.Format("{0:0.00}", (int)Eval("TrackID")/60000m) %>'></asp:Label>
+                            <asp:Label runat="server"
+                                Text='<%# string.Format("{0:0.0}", (int)Eval("Milliseconds")/60000m)  %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="($)">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% Eval("TrackID") %>'></asp:Label>
+                            <asp:Label runat="server"
+                                Text='<%# Eval("UnitPrice") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
