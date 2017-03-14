@@ -37,12 +37,13 @@
             <asp:Label ID="TracksBy" runat="server"></asp:Label>&nbsp;&nbsp;
             <asp:Label ID="SearchArgId" runat="server"></asp:Label>
             <br />
-            <asp:ListView ID="TracksSelectionList" runat="server" DataSourceID="TrackSelectionListODS" OnItemCommand="TracksSelectionList_ItemCommand"
-                >
+            <asp:ListView ID="TracksSelectionList" runat="server" DataSourceID="TrackSelectionListODS" 
+                OnItemCommand="TracksSelectionList_ItemCommand">
                 <AlternatingItemTemplate>
                     <tr style="background-color: #FFFFFF; color: #284775;">
                         <td>
-                            <asp:LinkButton ID="AddtoPlaylist" runat="server" CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'><span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
+                            <asp:LinkButton ID="AddtoPlaylist" runat="server" CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
+                            <span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
                         <td>
                             <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
                         <td>
@@ -72,7 +73,8 @@
                 <ItemTemplate>
                     <tr style="background-color: #E0FFFF; color: #333333;">
                         <td>
-                            <asp:LinkButton ID="AddtoPlaylist" runat="server" CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'><span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
+                            <asp:LinkButton ID="AddtoPlaylist" runat="server" CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
+                            <span aria-hidden="true" class="glyphicon glyphicon-plus"></span></asp:LinkButton>
                         <td>
                             <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
                         <td>
@@ -130,13 +132,21 @@
             <asp:Label ID="Label6" runat="server" Text="Playlist Name:"></asp:Label>
             <asp:TextBox ID="PlayListName" runat="server"></asp:TextBox>
             <asp:Button ID="PlayListFetch" runat="server" Text="Fetch" OnClick="PlayListFetch_Click" />
+            <%--enter 3 linkbuttons for move up, move down and delete--%>
+            <asp:LinkButton ID="MoveUp" runat="server" CssClass="btn" OnClick="MoveUp_Click">
+                            <span aria-hidden="true" class="glyphicon glyphicon-chevron-up"></span></asp:LinkButton>&nbsp;&nbsp;
+            <asp:LinkButton ID="MoveDown" runat="server" CssClass="btn" OnClick="MoveDown_Click">
+                            <span aria-hidden="true" class="glyphicon glyphicon-chevron-down"></span></asp:LinkButton>&nbsp;&nbsp;
+            <asp:LinkButton ID="DeleteTrack" runat="server" CssClass="btn" OnClick="DeleteTrack_Click">
+                            <span aria-hidden="true" class="glyphicon glyphicon-remove" style="color:red"></span></asp:LinkButton>
             <br />
             <br />
-            <asp:GridView ID="PlayList" runat="server">
+            <asp:GridView ID="PlayList" runat="server" AutoGenerateColumns="false" GridLines="Horizontal" BorderStyle="None">
                 <Columns>
                     <asp:TemplateField HeaderText="TrackID">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% Eval("TrackID") %>'></asp:Label>
+                            <asp:CheckBox ID="Selected" runat="server" />
+                            <asp:Label runat="server" Text='<% Eval("TrackID") %>' Visible="false"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Track">
