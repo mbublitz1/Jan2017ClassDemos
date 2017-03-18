@@ -37,7 +37,7 @@
             <asp:Label ID="TracksBy" runat="server"></asp:Label>&nbsp;&nbsp;
             <asp:Label ID="SearchArgId" runat="server"></asp:Label>
             <br />
-            <asp:ListView ID="TracksSelectionList" runat="server" DataSourceID="TrackSelectionListODS" 
+            <asp:ListView ID="TracksSelectionList" runat="server" DataSourceID="TrackSelectionListODS"
                 OnItemCommand="TracksSelectionList_ItemCommand">
                 <AlternatingItemTemplate>
                     <tr style="background-color: #FFFFFF; color: #284775;">
@@ -143,30 +143,35 @@
             <br />
             <asp:GridView ID="PlayList" runat="server" AutoGenerateColumns="false" GridLines="Horizontal" BorderStyle="None">
                 <Columns>
-                    <asp:TemplateField HeaderText="TrackID">
+                    <asp:TemplateField>
                         <ItemTemplate>
                             <asp:CheckBox ID="Selected" runat="server" />
-                            <asp:Label runat="server" Text='<% Eval("TrackID") %>' Visible="false"></asp:Label>
+                            <asp:Label runat="server" ID="TrackId"
+                                Text='<%# Eval("TrackID") %>' Visible="false"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Track">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% Eval("TrackNumber") %>'></asp:Label>
+                            <asp:Label runat="server" ID="TrackNumber"
+                                Text='<%# Eval("TrackNumber") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Name">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% Eval("Name") %>'></asp:Label>
+                            <asp:Label runat="server" ID="TrachName"
+                                Text='<%# Eval("TrackName") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Time">
+                    <asp:TemplateField HeaderText="Time (m:s)">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% string.Format("{0:0.00}", (int)Eval("TrackID")/60000m) %>'></asp:Label>
+                            <asp:Label runat="server" ID="Milliseconds"
+                                Text='<%# string.Format("{0:0.0}", (int)Eval("Milliseconds")/60000m)  %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="($)">
                         <ItemTemplate>
-                            <asp:Label runat="server" Text='<% Eval("TrackID") %>'></asp:Label>
+                            <asp:Label runat="server" ID="UnitPrice"
+                                Text='<%# Eval("UnitPrice") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
