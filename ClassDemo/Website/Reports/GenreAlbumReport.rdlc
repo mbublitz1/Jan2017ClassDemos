@@ -436,7 +436,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>="# of Tracks: " &amp; CountRows("AlbumTitle")</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontWeight>Normal</FontWeight>
