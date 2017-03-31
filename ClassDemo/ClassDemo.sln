@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{307BA3C0-D325-45B1-924F-3AACE8415259}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website(4)", "Website\", "{307BA3C0-D325-45B1-924F-3AACE8415259}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
 		ProjectReferences = "{69565d68-a2fc-4fc8-b7a9-a539f95b08d4}|Chinook.Data.dll;{f1c90ebc-0d40-4d09-b31a-c3fe5df7d234}|Chinook.System.dll;"
@@ -29,6 +29,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chinook.Data", "Chinook.Data\Chinook.Data.csproj", "{69565D68-A2FC-4FC8-B7A9-A539F95B08D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chinook.System", "Chinook.System\Chinook.System.csproj", "{F1C90EBC-0D40-4D09-B31A-C3FE5DF7D234}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{398D61AA-D7F1-4D21-AF48-174FABB9DE2F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
